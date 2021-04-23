@@ -282,6 +282,8 @@ As always, using [as-a](https://github.com/bahmutov/as-a) is recommended for sto
 
 This project uses [Sanity.io](https://sanity.io) as a Content Management System (CMS). Currently, the only content managed by Sanity.io is the banner that can appear above the top navigation bar.
 
+A cron job runs in CI every 12 hours to check for new banners. If a new banner is available, a Netlify build hook is invoked.
+
 ### Developing with Banners
 
 The `SANITY_PROJECT_ID` and `SANITY_AUTH_TOKEN` environment variables must be set to view the banners during development.
