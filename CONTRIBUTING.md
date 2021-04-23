@@ -21,6 +21,7 @@ Thanks for taking the time to contribute! :smile:
   - [Pull Requests](#pull-requests)
   - [Contributor License Agreement](#contributor-license-agreement)
 - [Deployment](#deployment)
+- [Sanity.io CMS](#sanity-io-cms)
 
 ## Code of Conduct
 
@@ -276,3 +277,21 @@ GITHUB_TOKEN=<your token> npm run make-empty-commit -- --message "trigger deploy
 ```
 
 As always, using [as-a](https://github.com/bahmutov/as-a) is recommended for storing and using sensitive environment variables.
+
+## Sanity.io CMS
+
+This project uses [Sanity.io](https://sanity.io) as a Content Management System (CMS). Currently, the only content managed by Sanity.io is the banner that can appear above the top navigation bar.
+
+### Developing with Banners
+
+The `SANITY_PROJECT_ID` and `SANITY_AUTH_TOKEN` environment variables must be set to view the banners during development.
+
+```sh
+SANITY_PROJECT_ID=myprojectid SANITY_AUTH_TOKEN=myauthtoken yarn start
+```
+
+The `SANITY_PROJECT_ID` can be found in the `sanity.json` file inside the [cypress-documentation-sanity-io](https://github.com/cypress-io/cypress-documentation-sanity-io) repository.
+
+You can create a `SANITY_AUTH_TOKEN` by signing into Sanity.io, viewing the `cypress-sanity` project, navigating to Settings -> API, and clicking on the "Add New Token" button.
+
+If you wish to edit the data model for banners or add new data models to be managed by Sanity.io, refer to the documentation in the [cypress-documentation-sanity-io](https://github.com/cypress-io/cypress-documentation-sanity-io) repository.
