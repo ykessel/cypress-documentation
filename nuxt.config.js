@@ -38,7 +38,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['~/styles/content.scss'],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
@@ -52,7 +52,17 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['nuxt-windicss', '@nuxtjs/fontawesome', '@nuxt/image'],
+  buildModules: [
+    'nuxt-windicss',
+    '@nuxtjs/fontawesome',
+    '@nuxt/image'
+  ],
+
+  windicss: {
+    scan: {
+      fileExtensions: ['vue', 'js', 'css', 'scss']
+    },
+  },
   /*
    ** Nuxt.js modules
    */
@@ -92,19 +102,6 @@ export default {
    */
   build: {
     loadingScreen: process.env.NODE_ENV === 'development',
-    extend(config) {
-      config.module.rules.push({
-        test: /\.vue$/,
-        loader: 'vue-windicss-preprocess',
-        options: {
-          config: "tailwind.config.js",  // tailwind config file path (optional)
-          compile: false,                // false: interpretation mode; true: compilation mode
-          globalPreflight: true,         // set preflight style is global or scoped
-          globalUtility: true,           // set utility style is global or scoped
-          prefix: 'windi-'               // set compilation mode style prefix
-        }
-      })
-    }
   },
   /*
    ** Font Awesome Configuration
